@@ -10,17 +10,10 @@ interface LazyLoadingImageProps {
 
 const LazyLoadingImage: FC<LazyLoadingImageProps> = ({ hash, imageSrc }) => {
   const [isImageLoaded, setIsImageLoaded] = useState<boolean>(false);
-  const [isImageLoading, setIsImageLoading] = useState<boolean>(false);
   return (
     <>
-      <Image
-        src={imageSrc}
-        onLoad={() => setIsImageLoaded(true)}
-        onLoadStart={() => setIsImageLoading(true)}
-        fill
-        alt="test"
-      />
-      {!isImageLoaded && isImageLoading && <BlurhashCanvas hash={hash} className="w-full h-full absolute" />}
+      <Image src={imageSrc} onLoad={() => setIsImageLoaded(true)} fill alt="test" />
+      {!isImageLoaded && <BlurhashCanvas hash={hash} className="w-full h-full absolute" />}
     </>
   );
 };
