@@ -1,43 +1,15 @@
 "use client";
 import LazyLoadingImage from "@/components/lazyLoadingImage";
-import Image from "next/image";
-import { Blurhash } from "react-blurhash";
+import { imagesAndHashes } from "@/constants/imagesAndHashs";
 
 export default function Home() {
-  const blurhashCode = "LXDmHv%MS4S$_Nofofs:?vWBt7xu";
   return (
-    // image container
     <div className="container grid grid-cols-4 gap-4 m-auto">
-      <div className="relative w-full aspect-[2/3]">
-        <LazyLoadingImage hash="T8Dub~AIIo0Q$ij?MboJoL~AbIay" imageSrc="/images/1.jpg" />
-      </div>
-      <div className="relative w-full aspect-[2/3]">
-        <LazyLoadingImage hash="T8Dub~AIIo0Q$ij?MboJoL~AbIay" imageSrc="/images/1.jpg" />
-      </div>
-      <div className="relative w-full aspect-[2/3]">
-        <LazyLoadingImage hash="T8Dub~AIIo0Q$ij?MboJoL~AbIay" imageSrc="/images/1.jpg" />
-      </div>
-      <div className="relative w-full aspect-[2/3]">
-        <LazyLoadingImage hash="T8Dub~AIIo0Q$ij?MboJoL~AbIay" imageSrc="/images/1.jpg" />
-      </div>
-      <div className="relative w-full aspect-[2/3]">
-        <LazyLoadingImage hash="T8Dub~AIIo0Q$ij?MboJoL~AbIay" imageSrc="/images/1.jpg" />
-      </div>
-      <div className="relative w-full aspect-[2/3]">
-        <LazyLoadingImage hash="T8Dub~AIIo0Q$ij?MboJoL~AbIay" imageSrc="/images/1.jpg" />
-      </div>
-      <div className="relative w-full aspect-[2/3]">
-        <LazyLoadingImage hash="T8Dub~AIIo0Q$ij?MboJoL~AbIay" imageSrc="/images/1.jpg" />
-      </div>
-      <div className="relative w-full aspect-[2/3]">
-        <LazyLoadingImage hash="T8Dub~AIIo0Q$ij?MboJoL~AbIay" imageSrc="/images/1.jpg" />
-      </div>
-      <div className="relative w-full aspect-[2/3]">
-        <LazyLoadingImage hash="T8Dub~AIIo0Q$ij?MboJoL~AbIay" imageSrc="/images/1.jpg" />
-      </div>
-      <div className="relative w-full aspect-[2/3]">
-        <LazyLoadingImage hash="T8Dub~AIIo0Q$ij?MboJoL~AbIay" imageSrc="/images/1.jpg" />
-      </div>
+      {imagesAndHashes.map((imageObj) => (
+        <div key={imageObj.hash} className="relative w-full aspect-[2/3]">
+          <LazyLoadingImage hash={imageObj.hash} imageSrc={imageObj.src} />
+        </div>
+      ))}
     </div>
   );
 }
