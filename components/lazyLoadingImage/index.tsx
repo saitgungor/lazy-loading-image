@@ -12,8 +12,8 @@ const LazyLoadingImage: FC<LazyLoadingImageProps> = ({ hash, imageSrc }) => {
   const [isImageLoaded, setIsImageLoaded] = useState<boolean>(false);
   return (
     <>
-      <Image src={imageSrc} fill alt="test" />
-      <BlurhashCanvas hash={hash} className="w-full h-full absolute" />
+      <Image src={imageSrc} onLoad={() => setIsImageLoaded(true)} fill alt="test" />
+      {!isImageLoaded && <BlurhashCanvas hash={hash} className="w-full h-full absolute" />}
     </>
   );
 };
