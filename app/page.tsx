@@ -1,4 +1,3 @@
-"use client";
 import LazyLoadingImage from "@/components/lazyLoadingImage";
 import { imagesAndHashes } from "@/constants/imagesAndHashs";
 
